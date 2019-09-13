@@ -105,7 +105,14 @@ public class ProblemSet1 {
          * What is my take-home pay each check?
          */
 
+         int salary = 117000;
+         double fedTax = 0.24;
+         double stateTax = 0.0637;
+         double retirementContribution = 0.07;
+         double weeklySalary = salary / 24;
+        weeklySalary = weeklySalary - (weeklySalary*fedTax) - (weeklySalary*stateTax) - (weeklySalary * retirementContribution);
 
+        System.out.println(weeklySalary);
 
         /*
          * Exercise 7.
