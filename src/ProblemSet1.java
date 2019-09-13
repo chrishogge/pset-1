@@ -31,7 +31,7 @@ public class ProblemSet1 {
          double squareMilliMeters = ((length*conversionFactorMM) * (width*conversionFactorMM));
          DecimalFormat commaFormat;
          commaFormat = new DecimalFormat("#,###.##");
-         System.out.println("\n " + commaFormat.format(squareMilliMeters) + " square millimeters.");
+         System.out.println("\n" + commaFormat.format(squareMilliMeters) + " square millimeters.");
 
         /*
          * Exercise 2.
@@ -43,7 +43,7 @@ public class ProblemSet1 {
          double lengthCM = length * conversionFactorCM;
          double widthCM = width * conversionFactorCM;
          double perimeter = (2*lengthCM + 2*widthCM);
-         System.out.println("\n " + commaFormat.format(perimeter) + " centimeters.");
+         System.out.println("\n" + commaFormat.format(perimeter) + " centimeters.");
 
         /*
          * Exercise 3.
@@ -53,7 +53,7 @@ public class ProblemSet1 {
          */
 
          double diagonal = (Math.sqrt((Math.pow(length,2))+(Math.pow(width,2))));
-         System.out.println("\n " + String.format("%.2f", diagonal) + " inches.");
+         System.out.println("\n" + String.format("%.2f", diagonal) + " inches.");
 
         /*
          * Exercise 4.
@@ -61,7 +61,9 @@ public class ProblemSet1 {
          * Given the grading policy and the homework, quiz, and test grades I received,
          * what marking period grade will I get?
          */
-
+        double homework = 0.15;
+        double quiz = 0.35;
+        double test = 0.50;
         int homework1 = 88;
         int homework2 = 91;
         int homework3 = 0;
@@ -72,7 +74,18 @@ public class ProblemSet1 {
         int test2 = 87;
         int test3 = 82;
 
+        double homework1Weighted = homework1 * homework;
+        double homework2Weighted = homework2 * homework;
+        double homework3Weighted = homework3 * homework;
+        double quiz1Weighted = quiz1 * quiz;
+        double quiz2Weighted = quiz2 * quiz;
+        double quiz3Weighted = quiz3 * quiz;
+        double test1Weighted = test1 * test;
+        double test2Weighted = test2 * test;
+        double test3Weighted = test3 * test;
 
+        double mpGrade = ((homework1Weighted + homework2Weighted + homework3Weighted)/3 + (quiz1Weighted + quiz2Weighted + quiz3Weighted)/3 + (test1Weighted + test2Weighted + test3Weighted)/3);
+        System.out.println("\n" + String.format("%.2f", mpGrade) + "%.");
 
         /*
          * Exercise 5.
