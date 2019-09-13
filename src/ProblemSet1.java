@@ -14,6 +14,7 @@
 
 import java.text.DecimalFormat;
 
+
 public class ProblemSet1 {
 
     public static void main(String[] args) {
@@ -51,7 +52,8 @@ public class ProblemSet1 {
          * by-11-inch sheet of paper?
          */
 
-         
+         double diagonal = (Math.sqrt((Math.pow(length,2))+(Math.pow(width,2))));
+         System.out.println("\n " + String.format("%.2f", diagonal) + " inches.");
 
         /*
          * Exercise 4.
