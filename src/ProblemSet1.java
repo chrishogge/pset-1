@@ -26,8 +26,8 @@ public class ProblemSet1 {
 
          double length = 8.5;
          double width = 11;
-         double conversionFactor = 25.4;
-         double squareMilliMeters = ((length*conversionFactor) * (width*conversionFactor));
+         double conversionFactorMM = 25.4;
+         double squareMilliMeters = ((length*conversionFactorMM) * (width*conversionFactorMM));
          DecimalFormat commaFormat;
          commaFormat = new DecimalFormat("#,###.##");
          System.out.println("\n " + commaFormat.format(squareMilliMeters) + " square millimeters.");
@@ -38,7 +38,11 @@ public class ProblemSet1 {
          * What is the perimeter (in centimeters) of an 8.5-by-11-inch sheet of paper?
          */
 
-
+         double conversionFactorCM = 2.54;
+         double lengthCM = length * conversionFactorCM;
+         double widthCM = width * conversionFactorCM;
+         double perimeter = (2*lengthCM + 2*widthCM);
+         System.out.println("\n " + commaFormat.format(perimeter) + " centimeters.");
 
         /*
          * Exercise 3.
@@ -47,7 +51,7 @@ public class ProblemSet1 {
          * by-11-inch sheet of paper?
          */
 
-
+         
 
         /*
          * Exercise 4.
