@@ -94,7 +94,10 @@ public class ProblemSet1 {
          * will I make this week?
          */
 
-
+         double hourlyWage = 12.50;
+         double weeklyWage = hourlyWage*7.5 + hourlyWage*8 + hourlyWage*10.5 + hourlyWage*9.5 + hourlyWage*6 + hourlyWage*11.5;
+         String weeklyWageString = "$" + String.format("%.2f",weeklyWage);
+         System.out.println("\n"+weeklyWageString+".");
 
         /*
          * Exercise 6.
