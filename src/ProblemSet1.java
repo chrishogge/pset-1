@@ -96,7 +96,7 @@ public class ProblemSet1 {
 
          double hourlyWage = 12.50;
          double weeklyWage = hourlyWage*7.5 + hourlyWage*8 + hourlyWage*10.5 + hourlyWage*9.5 + hourlyWage*6 + hourlyWage*11.5;
-         String weeklyWageString = "$" + String.format("%.2f",weeklyWage);
+         String weeklyWageString = String.format("$%.2f",weeklyWage);
          System.out.println("\n"+weeklyWageString+".");
 
         /*
@@ -110,9 +110,11 @@ public class ProblemSet1 {
          double stateTax = 0.0637;
          double retirementContribution = 0.07;
          double weeklySalary = salary / 24;
-        weeklySalary = weeklySalary - (weeklySalary*fedTax) - (weeklySalary*stateTax) - (weeklySalary * retirementContribution);
+         double takeHomePay = weeklySalary - (weeklySalary*fedTax);
+         takeHomePay = takeHomePay - (takeHomePay*stateTax);
+         takeHomePay = takeHomePay - (takeHomePay*retirementContribution);
 
-        System.out.println(weeklySalary);
+         System.out.println("\n" + String.format("$%,.2f",takeHomePay) + ".");
 
         /*
          * Exercise 7.
@@ -121,7 +123,13 @@ public class ProblemSet1 {
          * people will be on the last bus?
          */
 
+         int numStudents = 273;
+         int numTeachers = 28;
+         int capacity = 54;
 
+         int leftOver = (numStudents + numTeachers)%capacity;
+         double busAmount = Math.ceil((numStudents + numTeachers)/54.0);
+         System.out.println("\n" + String.format("%.0f",busAmount) + " buses are needed, with " + leftOver + " passengers on the last bus.");
 
         /*
          * Exercise 8.
@@ -129,7 +137,16 @@ public class ProblemSet1 {
          * What is the surface area of a standard Cornhole board?
          */
 
+          double boardLength = 48;
+          double boardWidth = 24;
+          double holeDiameter = 6;
+          double pi = 3.14159;
 
+          double boardArea = boardLength * boardWidth;
+          double holeArea = pi * Math.pow(holeDiameter/2, 2);
+          double totalBoardArea = boardArea - holeArea;
+
+          System.out.println("\n" + String.format("%,.2f",totalBoardArea) + " square inches.");
 
         /*
          * Exercise 9.
@@ -137,7 +154,17 @@ public class ProblemSet1 {
          * Are the years 2020, 2100, and 2400 leap years?
          */
 
+         double yearOne = 2020;
+         double yearTwo = 2100;
+         double yearThree = 2400;
 
+         boolean isYearOneLeap = isLeapYear(yearOne);
+         boolean isYearTwoLeap = isLeapYear(yearTwo);
+         boolean isYearThreeLeap = isLeapYear(yearThree);
+         System.out.println(isYearOneLeap);
+         System.out.println("\n" + String.format("%.0f",yearOne) + " is a leap year..." + isYearOneLeap +
+         ".\n" + String.format("%.0f",yearTwo) + " is a leap year..." + isYearTwoLeap
+          + ".\n" + String.format("%.0f",yearThree) + " is a leap year..." + isYearThreeLeap + ".");
 
         /*
          * Exercise 10.
@@ -147,5 +174,9 @@ public class ProblemSet1 {
 
 
 
+    }
+    public static boolean isLeapYear(double year){
+      boolean isLeap = (((year%4)==0) && (((year%100)!=0) || ((year%400)==0)));
+      return isLeap;
     }
 }
