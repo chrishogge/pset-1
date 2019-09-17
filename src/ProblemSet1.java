@@ -161,7 +161,7 @@ public class ProblemSet1 {
          boolean isYearOneLeap = isLeapYear(yearOne);
          boolean isYearTwoLeap = isLeapYear(yearTwo);
          boolean isYearThreeLeap = isLeapYear(yearThree);
-         System.out.println(isYearOneLeap);
+         
          System.out.println("\n" + String.format("%.0f",yearOne) + " is a leap year..." + isYearOneLeap +
          ".\n" + String.format("%.0f",yearTwo) + " is a leap year..." + isYearTwoLeap
           + ".\n" + String.format("%.0f",yearThree) + " is a leap year..." + isYearThreeLeap + ".");
@@ -172,11 +172,20 @@ public class ProblemSet1 {
          * What is the wind chill?
          */
 
+          double temp = 38;
+          double speed = 14;
 
+          double windChill = windChillTemp(temp,speed);
+          System.out.println("\n" + String.format("%.1f",windChill) + " degrees.");
 
     }
     public static boolean isLeapYear(double year){
       boolean isLeap = (((year%4)==0) && (((year%100)!=0) || ((year%400)==0)));
       return isLeap;
+    }
+
+    public static double windChillTemp(double temperature, double windSpeed){
+      double windChillTempCalc = 35.74 + (0.6215*temperature) + ((0.4275*temperature) - 35.75)*Math.pow(windSpeed,0.16);
+      return windChillTempCalc;
     }
 }
