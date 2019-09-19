@@ -87,7 +87,7 @@ public class ProblemSet1 {
         double mpGrade = ((homework1Weighted + homework2Weighted + homework3Weighted)/3 +
         (quiz1Weighted + quiz2Weighted + quiz3Weighted)/3 + (test1Weighted + test2Weighted
          + test3Weighted)/3);
-        System.out.println("\n" + String.format("%.2f", mpGrade) + "%.");
+        System.out.println("\n" + String.format("%.2f%%.", mpGrade));
 
         /*
          * Exercise 5.
@@ -99,8 +99,8 @@ public class ProblemSet1 {
          final double HOURLY_WAGE = 12.50;
          double weeklyWage = HOURLY_WAGE*7.5 + HOURLY_WAGE*8 + HOURLY_WAGE*10.5
          + HOURLY_WAGE*9.5 + HOURLY_WAGE*6 + HOURLY_WAGE*11.5;
-         String weeklyWageString = String.format("$%.2f",weeklyWage);
-         System.out.println("\n"+weeklyWageString+".");
+         String weeklyWageString = String.format("$%.2f.",weeklyWage);
+         System.out.println("\n"+ weeklyWageString);
 
         /*
          * Exercise 6.
@@ -117,7 +117,7 @@ public class ProblemSet1 {
          takeHomePay = takeHomePay - (takeHomePay*STATE_TAX);
          takeHomePay = takeHomePay - (takeHomePay*RET_CONT);
 
-         System.out.println("\n" + String.format("$%,.2f",takeHomePay) + ".");
+         System.out.println("\n" + String.format("$%,.2f.",takeHomePay));
 
         /*
          * Exercise 7.
