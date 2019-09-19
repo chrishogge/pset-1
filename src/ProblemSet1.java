@@ -25,10 +25,10 @@ public class ProblemSet1 {
          * What is the area (in square millimeters) of an 8.5-by-11-inch sheet of paper?
          */
 
-         double length = 8.5;
-         double width = 11;
-         double conversionFactorMM = 25.4;
-         double squareMilliMeters = ((length*conversionFactorMM) * (width*conversionFactorMM));
+         final double LENGTH = 8.5;
+         final double WIDTH = 11;
+         final double CONVERSION_FACTOR_MM = 25.4;
+         double squareMilliMeters = ((LENGTH*CONVERSION_FACTOR_MM) * (WIDTH*CONVERSION_FACTOR_MM));
          DecimalFormat commaFormat;
          commaFormat = new DecimalFormat("#,###.##");
          System.out.println("\n" + commaFormat.format(squareMilliMeters) + " square millimeters.");
@@ -39,20 +39,20 @@ public class ProblemSet1 {
          * What is the perimeter (in centimeters) of an 8.5-by-11-inch sheet of paper?
          */
 
-         double conversionFactorCM = 2.54;
-         double lengthCM = length * conversionFactorCM;
-         double widthCM = width * conversionFactorCM;
-         double perimeter = (2*lengthCM + 2*widthCM);
+         final double CONVERSION_FACTOR_CM = 2.54;
+         double LENGTHCM = LENGTH * CONVERSION_FACTOR_CM;
+         double WIDTHCM = WIDTH * CONVERSION_FACTOR_CM;
+         double perimeter = (2*LENGTHCM + 2*WIDTHCM);
          System.out.println("\n" + commaFormat.format(perimeter) + " centimeters.");
 
         /*
          * Exercise 3.
          *
-         * What is the length of the diagonal (in inches) between two corners on an 8.5-
+         * What is the LENGTH of the diagonal (in inches) between two corners on an 8.5-
          * by-11-inch sheet of paper?
          */
 
-         double diagonal = (Math.sqrt((Math.pow(length,2))+(Math.pow(width,2))));
+         double diagonal = (Math.sqrt((Math.pow(LENGTH,2))+(Math.pow(WIDTH,2))));
          System.out.println("\n" + String.format("%.2f", diagonal) + " inches.");
 
         /*
@@ -61,9 +61,9 @@ public class ProblemSet1 {
          * Given the grading policy and the homework, quiz, and test grades I received,
          * what marking period grade will I get?
          */
-        double homework = 0.15;
-        double quiz = 0.35;
-        double test = 0.50;
+        final double HOMEWORK = 0.15;
+        final double QUIZ = 0.35;
+        final double TEST = 0.50;
         int homework1 = 88;
         int homework2 = 91;
         int homework3 = 0;
@@ -74,17 +74,19 @@ public class ProblemSet1 {
         int test2 = 87;
         int test3 = 82;
 
-        double homework1Weighted = homework1 * homework;
-        double homework2Weighted = homework2 * homework;
-        double homework3Weighted = homework3 * homework;
-        double quiz1Weighted = quiz1 * quiz;
-        double quiz2Weighted = quiz2 * quiz;
-        double quiz3Weighted = quiz3 * quiz;
-        double test1Weighted = test1 * test;
-        double test2Weighted = test2 * test;
-        double test3Weighted = test3 * test;
+        double homework1Weighted = homework1 * HOMEWORK;
+        double homework2Weighted = homework2 * HOMEWORK;
+        double homework3Weighted = homework3 * HOMEWORK;
+        double quiz1Weighted = quiz1 * QUIZ;
+        double quiz2Weighted = quiz2 * QUIZ;
+        double quiz3Weighted = quiz3 * QUIZ;
+        double test1Weighted = test1 * TEST;
+        double test2Weighted = test2 * TEST;
+        double test3Weighted = test3 * TEST;
 
-        double mpGrade = ((homework1Weighted + homework2Weighted + homework3Weighted)/3 + (quiz1Weighted + quiz2Weighted + quiz3Weighted)/3 + (test1Weighted + test2Weighted + test3Weighted)/3);
+        double mpGrade = ((homework1Weighted + homework2Weighted + homework3Weighted)/3 +
+        (quiz1Weighted + quiz2Weighted + quiz3Weighted)/3 + (test1Weighted + test2Weighted
+         + test3Weighted)/3);
         System.out.println("\n" + String.format("%.2f", mpGrade) + "%.");
 
         /*
@@ -94,8 +96,9 @@ public class ProblemSet1 {
          * will I make this week?
          */
 
-         double hourlyWage = 12.50;
-         double weeklyWage = hourlyWage*7.5 + hourlyWage*8 + hourlyWage*10.5 + hourlyWage*9.5 + hourlyWage*6 + hourlyWage*11.5;
+         final double HOURLY_WAGE = 12.50;
+         double weeklyWage = HOURLY_WAGE*7.5 + HOURLY_WAGE*8 + HOURLY_WAGE*10.5
+         + HOURLY_WAGE*9.5 + HOURLY_WAGE*6 + HOURLY_WAGE*11.5;
          String weeklyWageString = String.format("$%.2f",weeklyWage);
          System.out.println("\n"+weeklyWageString+".");
 
@@ -105,14 +108,14 @@ public class ProblemSet1 {
          * What is my take-home pay each check?
          */
 
-         int salary = 117000;
-         double fedTax = 0.24;
-         double stateTax = 0.0637;
-         double retirementContribution = 0.07;
-         double weeklySalary = salary / 24;
-         double takeHomePay = weeklySalary - (weeklySalary*fedTax);
-         takeHomePay = takeHomePay - (takeHomePay*stateTax);
-         takeHomePay = takeHomePay - (takeHomePay*retirementContribution);
+         final int SALARY = 117000;
+         final double FED_TAX = 0.24;
+         final double STATE_TAX = 0.0637;
+         final double RET_CONT = 0.07;
+         double weeklySalary = SALARY / 24;
+         double takeHomePay = weeklySalary - (weeklySalary*FED_TAX);
+         takeHomePay = takeHomePay - (takeHomePay*STATE_TAX);
+         takeHomePay = takeHomePay - (takeHomePay*RET_CONT);
 
          System.out.println("\n" + String.format("$%,.2f",takeHomePay) + ".");
 
@@ -123,13 +126,14 @@ public class ProblemSet1 {
          * people will be on the last bus?
          */
 
-         int numStudents = 273;
-         int numTeachers = 28;
-         int capacity = 54;
+         final int NUM_STUDENTS = 273;
+         final int NUM_TEACHERS = 28;
+         final int CAPACITY = 54;
 
-         int leftOver = (numStudents + numTeachers)%capacity;
-         double busAmount = Math.ceil((numStudents + numTeachers)/54.0);
-         System.out.println("\n" + String.format("%.0f",busAmount) + " buses are needed, with " + leftOver + " passengers on the last bus.");
+         int leftOver = (NUM_STUDENTS + NUM_TEACHERS)%CAPACITY;
+         double busAmount = Math.ceil((NUM_STUDENTS + NUM_TEACHERS)/54.0);
+         System.out.println("\n" + String.format("%.0f",busAmount)
+         + " buses are needed, with " + leftOver + " passengers on the last bus.");
 
         /*
          * Exercise 8.
@@ -137,16 +141,17 @@ public class ProblemSet1 {
          * What is the surface area of a standard Cornhole board?
          */
 
-          double boardLength = 48;
-          double boardWidth = 24;
-          double holeDiameter = 6;
+          final double BOARD_LENGTH = 48;
+          final double BOARD_WIDTH = 24;
+          final double HOLE_DIAMETER = 6;
           double pi = 3.14159;
 
-          double boardArea = boardLength * boardWidth;
-          double holeArea = pi * Math.pow(holeDiameter/2, 2);
+          double boardArea = BOARD_LENGTH * BOARD_WIDTH;
+          double holeArea = pi * Math.pow(HOLE_DIAMETER/2, 2);
           double totalBoardArea = boardArea - holeArea;
 
-          System.out.println("\n" + String.format("%,.2f",totalBoardArea) + " square inches.");
+          System.out.println("\n" + String.format("%,.2f",totalBoardArea) +
+          " square inches.");
 
         /*
          * Exercise 9.
@@ -161,10 +166,13 @@ public class ProblemSet1 {
          boolean isYearOneLeap = isLeapYear(yearOne);
          boolean isYearTwoLeap = isLeapYear(yearTwo);
          boolean isYearThreeLeap = isLeapYear(yearThree);
-         
-         System.out.println("\n" + String.format("%.0f",yearOne) + " is a leap year..." + isYearOneLeap +
-         ".\n" + String.format("%.0f",yearTwo) + " is a leap year..." + isYearTwoLeap
-          + ".\n" + String.format("%.0f",yearThree) + " is a leap year..." + isYearThreeLeap + ".");
+
+         System.out.println("\n" + String.format("%.0f",yearOne)
+         + " is a leap year..." + isYearOneLeap +
+         ".\n" + String.format("%.0f",yearTwo) + " is a leap year..."
+         + isYearTwoLeap
+          + ".\n" + String.format("%.0f",yearThree) + " is a leap year..."
+          + isYearThreeLeap + ".");
 
         /*
          * Exercise 10.
@@ -185,7 +193,8 @@ public class ProblemSet1 {
     }
 
     public static double windChillTemp(double temperature, double windSpeed){
-      double windChillTempCalc = 35.74 + (0.6215*temperature) + ((0.4275*temperature) - 35.75)*Math.pow(windSpeed,0.16);
+      double windChillTempCalc = 35.74 + (0.6215*temperature) +
+      ((0.4275*temperature) - 35.75)*Math.pow(windSpeed,0.16);
       return windChillTempCalc;
     }
 }
